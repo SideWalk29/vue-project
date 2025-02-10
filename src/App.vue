@@ -4,6 +4,11 @@ import TheWelcome from './components/TheWelcome.vue'
 </script>
 
 <template>
+  <nav>
+    <router-link to="/">Inicio</router-link> |
+    <router-link to="/about">Sobre Nosotros</router-link>
+  </nav>
+  <router-view />
   <header>
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
