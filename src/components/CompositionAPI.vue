@@ -1,16 +1,21 @@
 <script setup>
 import { ref } from "vue";
 
-const count = ref(0);
+const contador = ref(0);
 
-const increment = () => {
-  count.value++;
+const incrementar = () => {
+  contador.value++;
 };
+
+const disminuir = () => {
+  contador.value--;
+}
 </script>
 
 <template>
   <div>
-    <p>Count: {{ count }}</p>
-    <button @click="increment">Increment</button>
+    <h3>Contador en Composition: {{ contador }}</h3>
+    <button @click="incrementar">Aumentar</button>
+    <button @click="disminuir">Disminuir</button>
   </div>
 </template>
