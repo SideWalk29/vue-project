@@ -7,6 +7,7 @@ import TheWelcome from './components/TheWelcome.vue'
   <nav>
     <router-link to="/">Inicio</router-link> |
     <router-link to="/about">Sobre Nosotros</router-link>
+    <router-link to="/partec">Parte C</router-link>
   </nav>
   <router-view />
   <header>
