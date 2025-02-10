@@ -2,12 +2,15 @@
 export default {
   data() {
     return {
-      count: 0
+      contador: 0
     };
   },
   methods: {
-    increment() {
-      this.count++;
+    incrementar() {
+      this.contador++;
+    },
+    disminuir() {
+      this.contador--
     }
   }
 };
@@ -15,7 +18,8 @@ export default {
 
 <template>
   <div>
-    <p>Count: {{ count }}</p>
-    <button @click="increment">Increment</button>
+    <h3>Contador en Option: {{ contador }}</h3>
+    <button @click="incrementar">Aumentar</button>
+    <button @click="disminuir">Disminuir</button>
   </div>
 </template>
