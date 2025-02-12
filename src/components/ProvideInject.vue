@@ -1,11 +1,13 @@
 <script setup>
-// Injecting the shared data provided by the parent component (in this case, "sharedMessage")
-const sharedMessage = inject('sharedMessage');
+import { inject } from 'vue';
+
+const customMessage = inject('greetingMessage');
 </script>
 
 <template>
+
   <div>
-    <!-- Display the shared message that was injected from the parent -->
-    <p>Injected Message: {{ sharedMessage }}</p>
-  </div>
+    <!--The Child gets the message provided by the Parent and shows it -->
+    <p>Injected Message: {{ customMessage }}</p>
+    </div>
 </template>

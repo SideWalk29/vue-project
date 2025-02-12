@@ -1,57 +1,59 @@
 <script setup>
-// Importing the components for each Vue concept
+import { provide } from 'vue';
 import PropsEmits from '../components/PropsEmits.vue';
 import ProvideInject from '../components/ProvideInject.vue';
 import Reactivity from '../components/Reactivity.vue';
 import Computed from '../components/Computed.vue';
 import Watch from '../components/Watch.vue';
+
+const handleMessage = (msg) => {
+  console.log('Message from child:', msg);
+};
+
+const parentMessage = 'Hello from Parent!';
+
+provide('greetingMessage', 'Hello to our App!');
 </script>
 
-
-
 <template>
-  <div>
-    <h1>Vue Concepts Explained</h1>
+  <div class="PropsEmits">
+    <h2>Props & Emits</h2>
 
-    <!-- 1. Props & Emits -->
-    <section id="props-emits">
-      <h2>Props & Emits - Parent → Child and Child → Parent Communication</h2>
-      <PropsEmits />
-    </section>
-
-    <!-- 2. Provide & Inject -->
-    <section id="provide-inject">
-      <h2>Provide & Inject - Global State Sharing</h2>
-      <ProvideInject />
-    </section>
-
-    <!-- 3. Reactivity -->
-    <section id="reactivity">
-      <h2>Reactivity - Using ref() and reactive()</h2>
-      <Reactivity />
-    </section>
-
-    <!-- 4. Computed -->
-    <section id="computed">
-      <h2>Computed - Using Computed Properties</h2>
-      <Computed />
-    </section>
-
-    <!-- 5. Watch -->
-    <section id="watch">
-      <h2>Watch & WatchEffect - Tracking State Changes</h2>
-      <Watch />
-    </section>
+    <!-- Props: The Parent sends a message to the Child, and the Child displays it -->
+    <!-- Emits: Data or Event flow From Child -> Parent -->
+    <PropsEmits :message="parentMessage" @sendMessage="handleMessage" />
   </div>
+
+  <div class="ProvideInject">
+    <!-- Provide: Parent gives a shared message to all children -->
+    <!-- Inject: Child retrieves and displays the shared message -->
+    <h2>Testing Main App</h2>
+    <ProvideInject />
+  </div>
+
+  <div class="Reactivity">
+    <!-- Use ref for primitive values (like numbers) and reactive for objects or arrays -->
+    <h2>Ref & Reactive</h2>
+    <Reactivity />
+  </div>
+
+  <div class="ComputedProperties">
+    <!-- Use computed when you need a value that automatically updates based on other data. -->
+    <h2>Computed Properties</h2>
+    <computed />
+  </div>
+
+  <div class="watch">
+    <!-- Use watch when you need to perform an action every time a value changes -->
+    <h2>Watch & WatchEffect</h2>
+    <watch />
+  </div>
+
 </template>
 
-<style scoped>
-/* Optional styling for each section */
-section {
-  margin-bottom: 2rem;
-}
-section h2 {
-  font-size: 1.5rem;
-  color: #2c3e50;
+<style>
+
+div {
+  padding-top: 20px;
 }
 </style>

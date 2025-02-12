@@ -5,14 +5,13 @@ import { ref, watch } from 'vue';
 // Create a reactive reference for count
 const count = ref(0);
 
-// Watch the count variable and log its changes
+// Use watch when you need to perform an action every time a value changes and wanna log the old & new value
 watch(count, (newVal, oldVal) => {
   console.log(`Count changed from ${oldVal} to ${newVal}`);
 });
 
-// Function to increment the count variable
 const increment = () => {
-  count.value++; // Increment the count value (needs .value for refs)
+  count.value++; 
 };
 </script>
 

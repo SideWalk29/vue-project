@@ -1,22 +1,26 @@
 <script setup>
-// Define the props that the parent will pass to the child (in this case, "message")
-const props = defineProps(['message']);
+// Define the props (message received from parent)
+const props = defineProps({
+  message: String,
+});
 
-// Define the emits the child can trigger to notify the parent (in this case, 'sayHello' event)
-const emit = defineEmits(['sayHello']);
+// Define the emits (event to send back to the parent)
+const emit = defineEmits(['sendMessage']);
 
-// Function that will be called when the button is clicked to send a message back to the parent
-const sendMessage = () => {
-  emit('sayHello', 'Hello from Child!'); // Emit the 'sayHello' event with a message
+// Function to send a message to the parent
+const sendMessageToParent = () => {
+  emit('sendMessage', 'Hello from the child!');
 };
 </script>
 
 <template>
   <div>
-    <!-- Display the message passed from the parent using the "message" prop -->
-    <p>Message from Parent: {{ props.message }}</p>
+    <h2>Child Component</h2>
     
-    <!-- Button that, when clicked, calls the sendMessage function to emit an event to the parent -->
-    <button @click="sendMessage">Send Message to Parent</button>
+    <!-- Display the message received from the parent -->
+    <p>Message from Parent: {{ props.message }}</p>
+
+    <!-- Button to send a message back to the parent -->
+    <button @click="sendMessageToParent">Click to Send Message to Parent</button>
   </div>
 </template>

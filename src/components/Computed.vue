@@ -5,8 +5,22 @@ import { ref, computed } from 'vue';
 // Create a reactive reference for a number (initially 5)
 const number = ref(5);
 
+// Use computed when you need to automatically calculate a value based on other data
 // Create a computed property to double the number
-const doubleNumber = computed(() => number.value * 2); // Automatically updates when number changes
+const doubleNumber = computed(() => number.value * 2);// Automatically updates when number changes
+
+const increment = () => {
+  number.value++;
+}
+
+const decrement = () => {
+  number.value--;
+}
+
+const reset = () => {
+  number.value = 5;
+}
+
 </script>
 
 <template>
@@ -14,5 +28,8 @@ const doubleNumber = computed(() => number.value * 2); // Automatically updates 
     <!-- Display the number and its doubled value from the computed property -->
     <p>Number: {{ number }}</p>
     <p>Double: {{ doubleNumber }}</p>
-  </div>
+    <button @click="increment">Incrementar</button>
+    <button @click="decrement">Disminuir</button>
+    <button @click="reset">Restear</button>
+</div>
 </template>
